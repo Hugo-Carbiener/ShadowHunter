@@ -2,9 +2,13 @@ package card;
 
 public class Benediction extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType INSTANTUSE;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Choisissez un joueur autre que vous et lancez le dé 6 faces
+		 * Ce joueur guérit d'autant de blesures que le résulat du dé
+		 */
 
 	}
 

@@ -2,7 +2,7 @@ package card;
 
 public class RevolverDesTenebres {
 	
-	protected CardType Equipement;
+	protected CardType EQUIPEMENT;
 	protected CardAlignement DARKNESS;
 	
 	public void effect() {

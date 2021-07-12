@@ -1,13 +1,12 @@
 package card;
 
-public class SabreHanteMasamune extends Card{
-	
+public class HacheTueuse extends Card {
 
 	protected CardType EQUIPEMENT;
 	protected CardAlignement DARKNESS;
 	
 	public void effect() {
-		//Vous devez attaquer a chauqe tour. 1 d4
+		//+1 blessure si on en inflige 
 	}
-	
+
 }

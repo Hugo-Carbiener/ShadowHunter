@@ -1,4 +1,4 @@
-# ShadowHunter
+# :crossed_swords: ShadowHunter
 
 ![Shadowhunter](http://www.kissmygeek.com/wp-content/uploads/2014/10/ShadowHunters.png)
 

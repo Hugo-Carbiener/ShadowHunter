@@ -2,9 +2,14 @@ package card;
 
 public class BoussoleMystique extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType EQUIPEMENT;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Quand vous vous déplacez vous pouvez
+		 * lancer 2 fois les dés et choisir quel résultat
+		 * utiliser
+		 */
 
 	}
 

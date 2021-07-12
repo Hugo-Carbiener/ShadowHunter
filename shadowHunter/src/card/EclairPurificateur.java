@@ -2,9 +2,13 @@ package card;
 
 public class EclairPurificateur extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType INSTANTUSE;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Chaque personnage à l'exception de vous-même
+		 * subit 2 Blessures
+		 */
 
 	}
 

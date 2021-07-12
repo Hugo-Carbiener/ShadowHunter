@@ -2,9 +2,13 @@ package card;
 
 public class Amulette extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType EQUIPEMENT;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Vous ne subissez aucune Blessure causée par les cartes Darkness :
+		 * Araignée sanguinaire, Dynamite ou Chauve-souris vampire
+		 */
 
 	}
 

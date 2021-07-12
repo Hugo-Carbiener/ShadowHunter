@@ -2,9 +2,13 @@ package card;
 
 public class BrosheDeChance extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType EQUIPEMENT;
+
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Un joueur dans la Foret hantée ne peut utiliser le pouvoir du Lieu
+		 * pour vous infliger des Blessures (mais peut tjr vous guérir)
+		 */
 
 	}
 

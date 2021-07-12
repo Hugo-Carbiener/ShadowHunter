@@ -2,9 +2,13 @@ package card;
 
 public class EauBenite extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType INSTANTUSE;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/*Vous êtes soigné
+		 * de 2 blessures
+		 */
 
 	}
 

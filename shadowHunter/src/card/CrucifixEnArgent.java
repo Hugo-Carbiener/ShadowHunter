@@ -2,9 +2,13 @@ package card;
 
 public class CrucifixEnArgent extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType EQUIPEMENT;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Si vous attaquez et tuez un autre personnage
+		 * vous récupérez toutes ses cartes équipement
+		 */
 
 	}
 

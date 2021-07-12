@@ -2,9 +2,15 @@ package card;
 
 public class LanceDeLonginus extends Card {
 
-	@Override
+
+	protected CardAlignement LIGHT;
+	protected CardType EQUIPEMENT;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Si vous êtes Hunter et votre identité est révélée
+		 * chaque fois qu'une de vos attaques inflige des Blessures
+		 * vous infligez 2 BLessures supplémentaires
+		 */
 
 	}
 

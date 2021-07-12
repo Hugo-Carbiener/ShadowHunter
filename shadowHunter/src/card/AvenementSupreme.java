@@ -2,9 +2,14 @@ package card;
 
 public class AvenementSupreme extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType INSTANTUSE;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Si vous êtes Hunter, vous pouvez révéler votre identité
+		 * Si vous le faites ou si vous l'avez déjà fait
+		 * Vous soignez toutes vos Blessures
+		 */
 
 	}
 

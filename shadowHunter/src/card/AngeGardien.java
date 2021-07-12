@@ -2,9 +2,13 @@ package card;
 
 public class AngeGardien extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType INSTANTUSE;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Les attaques ne vous inflifent aucunce Blessure jusqu'au prochain tour
+		 * (défaussez alors cette carte)
+		 */
 
 	}
 

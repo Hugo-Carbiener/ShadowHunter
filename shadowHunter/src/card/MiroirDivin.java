@@ -2,9 +2,13 @@ package card;
 
 public class MiroirDivin extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType INSTANTUSE;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Si vous êtes un shadow autre que Métamorphe
+		 * vous devez réveler votre identité
+		 */
 
 	}
 

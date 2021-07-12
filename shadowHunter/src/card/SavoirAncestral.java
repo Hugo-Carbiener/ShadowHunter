@@ -2,9 +2,13 @@ package card;
 
 public class SavoirAncestral extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType INSTANTUSE;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Lorsque votre tour est terminé jouez immédiatement
+		 * un nouveau tour
+		 */
 
 	}
 

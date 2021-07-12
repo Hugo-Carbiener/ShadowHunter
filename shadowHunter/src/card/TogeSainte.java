@@ -2,9 +2,13 @@ package card;
 
 public class TogeSainte extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType EQUIPEMENT;
+	
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Vos attaques infligent 1 Blessure de moins
+		 * mais les Blessures subit sont réduites de 1
+		 */
 
 	}
 

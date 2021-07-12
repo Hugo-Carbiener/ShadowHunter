@@ -2,9 +2,13 @@ package card;
 
 public class PremiersSecours extends Card {
 
-	@Override
+	protected CardAlignement LIGHT;
+	protected CardType INSTANTUSE;
+
 	public void effect() {
-		// TODO Auto-generated method stub
+		/* Placez le marqueur de Blessures du joueur
+		 * de votre choix (y compris vous) sur le 7
+		 */
 
 	}
 

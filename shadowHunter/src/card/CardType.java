@@ -1,5 +1,5 @@
 package card;
 
 public enum CardType {
-	INSTANTUSE, EQUIPEMENT, VISION
+	INSTANTUSE, EQUIPEMENT;
 }

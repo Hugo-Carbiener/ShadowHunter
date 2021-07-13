@@ -1,6 +1,6 @@
 package card;
 
-public class RevolverDesTenebres {
+public class RevolverDesTenebres extends Card{
 	
 	protected CardType EQUIPEMENT;
 	protected CardAlignement DARKNESS;

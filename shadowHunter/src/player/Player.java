@@ -76,6 +76,9 @@ public class Player {
 		this.isAlive = isAlive;
 	}
 	
+	public void setCharacter(Character character) {
+		this.character=character;
+	}
 	
 	
 	public boolean takeDamage(int damage) {

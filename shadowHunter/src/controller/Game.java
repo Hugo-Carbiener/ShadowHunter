@@ -1,14 +1,17 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
+import java.util.Scanner;
 
 import card.Card;
 import character.*;
 import character.Character;
 import player.Player;
 import card.*;
+import player.ID;
+import player.Player;
 
 public class Game {
 
@@ -20,12 +23,32 @@ public class Game {
 	private List<Player> playerList;
 	public static Random rand = new Random();
 
+	public Game() {
+		//Initialize player number
+		System.out.println("Enter the number of player:");
+		int input = prompt();
+		while (input<4 || input>8) {
+			System.err.println("The number of players should be within 4 and 8.\nPlease retry");
+			input = prompt();
+		}
+		this.nbPlayer = input;
+		
+		//Initialize card lists
+		deckLight = new ArrayList<Card>();
+		deckDarkness = new ArrayList<Card>();
+		deckVision = new ArrayList<Card>();
+		playerList = new ArrayList<Player>();	
+	}
+	
 	public void init() {
-		deckSetup();
+		deckSetup();	
+		playersSetup();
 	}
 
 	public void deckSetup() {
+		System.out.println("Deck setup initiated");
 		//Light deck creation
+		
 		deckLight.add(new EauBenite());
 		deckLight.add(new EauBenite());
 		deckLight.add(new BarreDeChocolat());
@@ -79,7 +102,52 @@ public class Game {
 		deckVision.add(new VisionLugubre());
 		deckVision.add(new VisionDivine());
 		deckVision.add(new VisionSupreme());
+		System.out.println("Deck setup completed");
 	}
+	
+	public int prompt() {
+		Scanner sc = new Scanner(System.in);
+		int input = sc.nextInt();
+		//sc.close();
+		return input;
+	}
+	
+	public void playersSetup() {
+		System.out.println("Players setup initiated");
+		
+		//Generate the players
+		for (int i=0; i<nbPlayer; i++) {
+			playerList.add(new Player());
+		}
+		//Link a color to each player from 
+		List<ID> availableIDs = new ArrayList<ID>(Arrays.asList(ID.BLUE, ID.GREEN, ID.YELLOW, ID.PURPLE, ID.RED, ID.BLACK, ID.WHITE, ID.ORANGE));
+		
+		for(int i = 1; i <= nbPlayer; i++) {//for each player
+			 System.out.println("Player " + i + ": Choose your color.\n");
+			 System.out.println("Available colors are:");
+			 for (ID temp : availableIDs) {
+				 System.out.println(temp + ": " + temp.ordinal());
+			 }
+			 
+			//get input
+			 System.out.println("\nType the number of your color");
+			 int input = prompt();
+			 while (!(availableIDs.contains(ID.values()[input]))) {
+				 System.err.println("This ID is unavailable. Please retry.");
+				 System.out.println("Type the number of your color");
+				 //get input
+				 input = prompt();
+			 }
+			 
+			 //Recover id corresponding to the input
+			 ID color = ID.values()[input];
+			 playerList.get(i - 1).setID(color);
+			 System.out.println("You chose " + color + "\n");
+			 availableIDs.remove(color);
+		}
+		System.out.println("Players setup completed");
+	}
+	
 	public void start() {
 
 	}

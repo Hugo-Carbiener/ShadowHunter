@@ -3,7 +3,7 @@ package card;
 import java.util.ArrayList;
 import java.util.List;
 
-import Character.Role;
+import character.Role;
 
 public class VisionSupreme extends Card {
 

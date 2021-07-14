@@ -2,9 +2,10 @@ package player;
 
 import java.util.List;
 import java.util.Random;
-import Character.Character;
+
 import area.Area;
 import card.Card;
+import character.Character;
 
 public class Player {
 	private boolean isAlive=true;
@@ -76,6 +77,9 @@ public class Player {
 		this.isAlive = isAlive;
 	}
 	
+	public void setCharacter(Character character) {
+		this.character=character;
+	}
 	
 	
 	public boolean takeDamage(int damage) {

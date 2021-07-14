@@ -1,6 +1,6 @@
 package card;
 
-public class TronconneuseDuMal {
+public class TronconneuseDuMal extends Card{
 	
 	protected CardType EQUIPEMENT;
 	protected CardAlignement DARKNESS;

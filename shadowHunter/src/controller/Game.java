@@ -13,6 +13,10 @@ public class Game {
 	private List<Card> deckVision;
 	
 	public void init() {
+		deckSetup();		
+	}
+	
+	public void deckSetup() {
 		//Light deck creation
 		deckLight.add(new EauBenite());
 		deckLight.add(new EauBenite());
@@ -66,10 +70,8 @@ public class Game {
 		deckVision.add(new VisionReconfortante());
 		deckVision.add(new VisionLugubre());
 		deckVision.add(new VisionDivine());
-		deckVision.add(new VisionSupreme());		
-		
+		deckVision.add(new VisionSupreme());
 	}
-	
 	public void start() {
 		
 	}

@@ -223,7 +223,13 @@ public class Game {
 		int randInt;
 		for(int i=0;i<this.nbPlayer;i++) {
 			randInt=rand.nextInt(this.nbPlayer-i);
-			this.playerList.get(i).setCharacter(allCharacter.get(randInt));
+			Player curPlayer = this.playerList.get(i);
+			//Character chosen randomly
+			Character curCharacter = allCharacter.get(randInt);
+			//Player.character = character
+			curPlayer.setCharacter(curCharacter);
+			//Character.player = player
+			curCharacter.setPlayer(curPlayer);
 			allCharacter.remove(randInt);
 		}
 

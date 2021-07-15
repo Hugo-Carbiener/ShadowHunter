@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Daniel extends Character {
 
 	public Daniel() {
@@ -8,14 +10,13 @@ public class Daniel extends Character {
 	
 	@Override
 	public void capacity() {
-		//révèle dès que qqn meurt
+		//rï¿½vï¿½le dï¿½s que qqn meurt
 		//unique
 	}
 
-	@Override
-	public void victoryCondition() {
-		// premier à mourir sinon avec les hunter
-
+	public boolean victoryCondition(Game game) {
+		// premier ï¿½ mourir sinon avec les hunter
+		return false;
 	}
 
 }

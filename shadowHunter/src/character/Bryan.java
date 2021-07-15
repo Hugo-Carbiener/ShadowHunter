@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Bryan extends Character {
 
 	public Bryan() {
@@ -8,13 +10,13 @@ public class Bryan extends Character {
 	
 	@Override
 	public void capacity() {
-		// se révèle s'il tue qqn avec lp<13
+		// se rï¿½vï¿½le s'il tue qqn avec lp<13
 
 	}
 
-	@Override
-	public void victoryCondition() {
-		// tue qqn avec lp > 13 ou est dans sanctuaire ancien à la fin de la game
+	public boolean victoryCondition(Game game) {
+		// tue qqn avec lp > 13 ou est dans sanctuaire ancien ï¿½ la fin de la game
+		return false;
 	}
 
 }

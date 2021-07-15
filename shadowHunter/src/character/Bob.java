@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Bob extends Character{
 	
 	public Bob() {
@@ -7,11 +9,12 @@ public class Bob extends Character{
 	}
 	
 	public void capacity() {
-		//si dégats infligé >=2 alors peut voler équiper plutot que dégats
+		//si dï¿½gats infligï¿½ >=2 alors peut voler ï¿½quiper plutot que dï¿½gats
 	}
 	
-	public void victoryCondition() {
-		//5 cartes équipements
+	public boolean victoryCondition(Game game) {
+		//5 cartes ï¿½quipements
+		return false;
 	}
 	
 	

@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Fuka extends Character {
 
 	public Fuka() {
@@ -9,14 +11,14 @@ public class Fuka extends Character {
 	
 	@Override
 	public void capacity() {
-		// au début du tour mettre blessure sur 7
+		// au dï¿½but du tour mettre blessure sur 7
 		//unique
 	}
 
 	@Override
-	public void victoryCondition() {
+	public boolean victoryCondition(Game game) {
 		// Mort shadow
-
+		return false;
 	}
 
 }

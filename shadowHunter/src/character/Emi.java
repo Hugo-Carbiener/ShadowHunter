@@ -1,15 +1,18 @@
 package character;
 
+import controller.Game;
+
 public class Emi extends Character {
 	public Emi() {
 		super(10,"Emi",Role.HUNTER);
 	}
 	
 	public void capacity() {
-		//déplacer au lieu adjacent à la place de lancer les dés
+		//dï¿½placer au lieu adjacent ï¿½ la place de lancer les dï¿½s
 	}
 	
-	public void victoryCondition() {
+	public boolean victoryCondition(Game game) {
 		//Mort des shadow
+		return false;
 	}
 }

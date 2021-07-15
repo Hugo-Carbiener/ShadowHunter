@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Agnes extends Character {
 
 	public Agnes() {
@@ -9,14 +11,13 @@ public class Agnes extends Character {
 	
 	@Override
 	public void capacity() {
-		// Changer victory condition à ggner avec gauche
+		// Changer victory condition ï¿½ ggner avec gauche
 
 	}
 
-	@Override
-	public void victoryCondition() {
+	public boolean victoryCondition(Game game) {
 		// gagner avec droite
-
+		return false;
 	}
 
 }

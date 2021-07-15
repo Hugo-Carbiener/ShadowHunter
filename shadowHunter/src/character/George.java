@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class George extends Character {
 
 	public George() {
@@ -8,14 +10,14 @@ public class George extends Character {
 	
 	@Override
 	public void capacity() {
-		// dé 4 de dégat
+		// dï¿½ 4 de dï¿½gat
 		//unique
 	}
 
 	@Override
-	public void victoryCondition() {
+	public boolean victoryCondition(Game game) {
 		// Mort Shadow
-
+		return false;
 	}
 
 }

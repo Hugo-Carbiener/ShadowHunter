@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Franklin extends Character {
 
 	public Franklin() {
@@ -8,14 +10,13 @@ public class Franklin extends Character {
 	
 	@Override
 	public void capacity() {
-		// dé 6 de dégats
+		// dï¿½ 6 de dï¿½gats
 		//unique
 	}
 
-	@Override
-	public void victoryCondition() {
+	public boolean victoryCondition(Game game) {
 		// Mort shadow
-
+		return false;
 	}
 
 }

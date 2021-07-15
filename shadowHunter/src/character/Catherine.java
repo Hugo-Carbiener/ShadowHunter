@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Catherine extends Character {
 
 	public Catherine() {
@@ -8,14 +10,13 @@ public class Catherine extends Character {
 	
 	@Override
 	public void capacity() {
-		// se guérit 1 blessure au début de son tour
+		// se guï¿½rit 1 blessure au dï¿½but de son tour
 
 	}
 
-	@Override
-	public void victoryCondition() {
-		// mourir en premier ou être parmi les deux derniers vivants
-
+	public boolean victoryCondition(Game game) {
+		// mourir en premier ou ï¿½tre parmi les deux derniers vivants
+		return false;
 	}
 
 }

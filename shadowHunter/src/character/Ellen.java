@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Ellen extends Character {
 
 	public Ellen() {
@@ -9,14 +11,13 @@ public class Ellen extends Character {
 	
 	@Override
 	public void capacity() {
-		// perte de capacité pour la cible
+		// perte de capacitï¿½ pour la cible
 		//unique
 	}
 
-	@Override
-	public void victoryCondition() {
+	public boolean victoryCondition(Game game) {
 		// mort shadow
-
+		return false;
 	}
 
 }

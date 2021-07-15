@@ -2,6 +2,7 @@ package card;
 
 public class BrocheDeChance extends Card {
 
+	protected String name = "Broche de chance";
 	protected CardAlignement LIGHT;
 	protected CardType EQUIPEMENT;
 

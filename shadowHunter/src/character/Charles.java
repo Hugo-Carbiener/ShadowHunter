@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Charles extends Character {
 
 	public Charles() {
@@ -12,10 +14,9 @@ public class Charles extends Character {
 		//unique
 	}
 
-	@Override
-	public void victoryCondition() {
-		// tuer qqn dès que mort >=3
-
+	public boolean victoryCondition(Game game) {
+		// tuer qqn dï¿½s que mort >=3
+		return false;
 	}
 
 }

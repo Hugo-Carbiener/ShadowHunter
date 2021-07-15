@@ -2,6 +2,7 @@ package card;
 
 public class Dynamite extends Card {
 
+	protected String name = "Dynamite";
 	protected CardType INSTANTUSE;
 	protected CardAlignement DARKNESS;
 	

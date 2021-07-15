@@ -27,6 +27,8 @@ public class Player {
 		return Math.abs((rand.nextInt(6 - 1 + 1) + 1 ) - (rand.nextInt(4 - 1 + 1) + 1));
 	}
 
+	public boolean getIsAlive() {return isAlive;}
+	
 	public ID getID() {return id;}
 	public void setID(ID id) {this.id = id;}
 	

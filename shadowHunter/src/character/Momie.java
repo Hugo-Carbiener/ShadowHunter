@@ -1,5 +1,8 @@
 package character;
 
+import controller.Game;
+import player.Player;
+
 public class Momie extends Character {
 	
 	public Momie() {
@@ -8,14 +11,34 @@ public class Momie extends Character {
 
 	@Override
 	public void capacity() {
-		// 3 dégats dans porte de l'outremonde au début du tour
+		// 3 dï¿½gats dans porte de l'outremonde au dï¿½but du tour
 
 	}
 
-	@Override
-	public void victoryCondition() {
-		// // tuer hunter ou 3 neutre
-
+	public boolean victoryCondition(Game game) {
+		
+		boolean huntersLeft = false;
+		boolean neutralsLeft = false;
+		//Check if some hunters are still alive
+		for(Player player : game.getAlivePlayers()) {
+			if (player.getCharacter().role == Role.HUNTER) {
+				huntersLeft = true; //There are still hunters left, shadow hasn't won yet
+			}
+		}
+		//Check if some neutrals are still alive
+		for(Player player : game.getAlivePlayers()) {
+			if (player.getCharacter().role == Role.NEUTRAL) {
+				neutralsLeft = true;
+			}
+		}
+		
+		if (! huntersLeft) {
+			return true;
+		} else if (game.getNbPlayer() == 7 && !(neutralsLeft)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

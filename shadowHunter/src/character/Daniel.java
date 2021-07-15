@@ -1,5 +1,8 @@
 package character;
 
+import controller.Game;
+import player.Player;
+
 public class Daniel extends Character {
 
 	public Daniel() {
@@ -8,14 +11,31 @@ public class Daniel extends Character {
 	
 	@Override
 	public void capacity() {
-		//révèle dès que qqn meurt
+		//rï¿½vï¿½le dï¿½s que qqn meurt
 		//unique
 	}
 
-	@Override
-	public void victoryCondition() {
-		// premier à mourir sinon avec les hunter
-
+	public boolean victoryCondition(Game game) {
+		
+		//if is the first dead
+		if (! player.getIsAlive() && game.getAlivePlayers().size() == game.getNbPlayer() - 1) {
+			return true;
+		}
+		
+		//if all shadows dead 
+		boolean shadowsLeft = false;
+		//Check if some shadows are still alive
+		for(Player player : game.getAlivePlayers()) {
+			if (player.getCharacter().role == Role.SHADOW) {
+				shadowsLeft = true; //There are still shadows left, hunter hasn't won yet
+			}
+		}
+		
+		//If there is no shadows left, hunter has won
+		if (! shadowsLeft) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-
 }

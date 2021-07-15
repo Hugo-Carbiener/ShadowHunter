@@ -2,6 +2,7 @@ package card;
 
 public class AvenementSupreme extends Card {
 
+	protected String name = "Avènement suprême";
 	protected CardAlignement LIGHT;
 	protected CardType INSTANTUSE;
 	

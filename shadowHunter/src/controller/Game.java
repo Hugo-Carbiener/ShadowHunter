@@ -22,7 +22,8 @@ public class Game {
 	private List<Card> deckDarkness;
 	private List<Card> deckVision;
 	private List<Area> areaList;
-	private List<Player> playerList;
+	private List<Player> alivePlayers;
+	private List<Player> allPlayers;
 	public static Random rand = new Random();
 	public static Scanner sc = new Scanner(System.in);
 
@@ -40,11 +41,22 @@ public class Game {
 		deckLight = new ArrayList<Card>();
 		deckDarkness = new ArrayList<Card>();
 		deckVision = new ArrayList<Card>();
-		playerList = new ArrayList<Player>();	
+		alivePlayers = new ArrayList<Player>();	
 		areaList = new ArrayList<Area>();
 	}
 	
+	public void deadPlayer() {
+		for(int i = 0; i < this.nbPlayer; i++) {
+			if(this.alivePlayers.get(i).getIsAlive() == false) {
+				this.alivePlayers.remove(i);
+			}
+		}
+	}
+	
+	public int getNbPlayer() {return this.nbPlayer;}
 	public List<Area> getAreaList() {return this.areaList;}
+	public List<Player> getAlivePlayers() {return this.alivePlayers;}
+	public List<Player> getAllPlayers() {return this.allPlayers;}
 	
 	public void init() {
 		areaSetup();
@@ -150,7 +162,7 @@ public class Game {
 		
 		//Generate the players
 		for (int i=0; i<nbPlayer; i++) {
-			playerList.add(new Player());
+			alivePlayers.add(new Player());
 		}
 		//Link a color to each player from 
 		List<ID> availableIDs = new ArrayList<ID>(Arrays.asList(ID.BLUE, ID.GREEN, ID.YELLOW, ID.PURPLE, ID.RED, ID.BLACK, ID.WHITE, ID.ORANGE));
@@ -174,7 +186,7 @@ public class Game {
 			 
 			 //Recover id corresponding to the input
 			 ID color = ID.values()[input];
-			 playerList.get(i - 1).setID(color);
+			 alivePlayers.get(i - 1).setID(color);
 			 System.out.println("You chose " + color + "\n");
 			 availableIDs.remove(color);
 		}
@@ -326,7 +338,7 @@ public class Game {
 		int randInt;
 		for(int i=0;i<this.nbPlayer;i++) {
 			randInt=rand.nextInt(this.nbPlayer-i);
-			this.playerList.get(i).setCharacter(allCharacter.get(randInt));
+			this.alivePlayers.get(i).setCharacter(allCharacter.get(randInt));
 			allCharacter.remove(randInt);
 		}
 
@@ -348,7 +360,7 @@ public class Game {
 		allCharacter.add(new Ellen());
 		allCharacter.add(new Franklin());
 		allCharacter.add(new Fuka());
-		allCharacter.add(new George());
+		allCharacter.add(new Georges());
 		allCharacter.add(new Gregor());
 		allCharacter.add(new Momie());
 		allCharacter.add(new Metamorphe());
@@ -360,6 +372,7 @@ public class Game {
 		return allCharacter;
 	}
 
+	
 	public List<Character> divisionAllCharacter(){
 		List<Character> allCharacter = this.allCharacterCreation();
 		for(int i=0;i<10;i++) {

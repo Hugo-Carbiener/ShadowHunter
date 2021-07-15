@@ -2,6 +2,7 @@ package card;
 
 public class Benediction extends Card {
 
+	protected String name = "Bénédiction";
 	protected CardAlignement LIGHT;
 	protected CardType INSTANTUSE;
 	

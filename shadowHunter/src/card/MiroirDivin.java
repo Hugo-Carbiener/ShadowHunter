@@ -2,6 +2,7 @@ package card;
 
 public class MiroirDivin extends Card {
 
+	protected String name = "Miroir divin";
 	protected CardAlignement LIGHT;
 	protected CardType INSTANTUSE;
 	

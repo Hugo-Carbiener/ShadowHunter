@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Allie extends Character {
 
 	public Allie() {
@@ -12,10 +14,9 @@ public class Allie extends Character {
 		//unique
 	}
 
-	@Override
-	public void victoryCondition() {
-		// etre en vie à la fin de la game
-
+	public boolean victoryCondition(Game game) {
+		// etre en vie ï¿½ la fin de la game
+		return false;
 	}
 
 }

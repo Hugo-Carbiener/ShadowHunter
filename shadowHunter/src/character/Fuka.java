@@ -1,5 +1,8 @@
 package character;
 
+import controller.Game;
+import player.Player;
+
 public class Fuka extends Character {
 
 	public Fuka() {
@@ -9,14 +12,26 @@ public class Fuka extends Character {
 	
 	@Override
 	public void capacity() {
-		// au début du tour mettre blessure sur 7
+		// au dï¿½but du tour mettre blessure sur 7
 		//unique
 	}
 
-	@Override
-	public void victoryCondition() {
-		// Mort shadow
-
+	public boolean victoryCondition(Game game) {
+		
+		boolean shadowsLeft = false;
+		//Check if some shadows are still alive
+		for(Player player : game.getAlivePlayers()) {
+			if (player.getCharacter().role == Role.SHADOW) {
+				shadowsLeft = true; //There are still shadows left, hunter hasn't won yet
+			}
+		}
+		
+		//If there is no shadows left, hunter has won
+		if (! shadowsLeft) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

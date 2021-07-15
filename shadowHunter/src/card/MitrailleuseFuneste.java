@@ -2,6 +2,7 @@ package card;
 
 public class MitrailleuseFuneste extends Card {
 
+	protected String name = "Mitrailleuse funeste";
 	protected CardType EQUIPEMENT;
 	protected CardAlignement DARKNESS;
 	

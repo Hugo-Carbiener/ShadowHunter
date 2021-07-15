@@ -1,5 +1,7 @@
 package character;
 
+import controller.Game;
+
 public class Catherine extends Character {
 
 	public Catherine() {
@@ -8,14 +10,18 @@ public class Catherine extends Character {
 	
 	@Override
 	public void capacity() {
-		// se guérit 1 blessure au début de son tour
+		// se guï¿½rit 1 blessure au dï¿½but de son tour
 
 	}
 
-	@Override
-	public void victoryCondition() {
-		// mourir en premier ou être parmi les deux derniers vivants
-
+	public boolean victoryCondition(Game game) {
+		//Be the first to die
+		if (! player.getIsAlive() && game.getAlivePlayers().size() == game.getNbPlayer() - 1) {
+			return true;
+		} else if (player.getIsAlive() && game.getNbPlayer() <= 2) {//Be one of the two last characters alive
+			return true;
+		} else {
+			return false;
+		}
 	}
-
 }

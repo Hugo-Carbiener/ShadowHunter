@@ -2,6 +2,7 @@ package card;
 
 public class ChauveSourisVampire extends Card {
 
+	protected String name = "Chauve-souris vampire";
 	protected CardType INSTANTUSE;
 	protected CardAlignement DARKNESS;
 	

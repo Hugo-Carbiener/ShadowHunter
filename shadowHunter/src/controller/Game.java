@@ -257,6 +257,10 @@ public class Game {
 		return allCharacter;
 	}
 
+	for(int i = 0; i < this.nbPlayer; i++) {
+			if this.playerList.get(i);
+	}
+	
 	public List<Character> divisionAllCharacter(){
 		List<Character> allCharacter = this.allCharacterCreation();
 		for(int i=0;i<10;i++) {

@@ -15,7 +15,6 @@ public class Valkyrie extends Character {
 
 	}
 
-	@Override
 	public boolean victoryCondition(Game game) {
 		
 		boolean huntersLeft = false;

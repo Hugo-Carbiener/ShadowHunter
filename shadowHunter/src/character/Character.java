@@ -1,5 +1,6 @@
 package character;
 
+import controller.Game;
 import player.Player;
 
 public abstract class Character {
@@ -22,5 +23,5 @@ public abstract class Character {
 	}
 	
 	public abstract void capacity();
-	public abstract boolean victoryCondition();
+	public abstract boolean victoryCondition(Game game);
 }

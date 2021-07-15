@@ -2,6 +2,7 @@ package card;
 
 public class RevolverDesTenebres extends Card{
 	
+	protected String name = "Revolver des ténèbres";
 	protected CardType EQUIPEMENT;
 	protected CardAlignement DARKNESS;
 	

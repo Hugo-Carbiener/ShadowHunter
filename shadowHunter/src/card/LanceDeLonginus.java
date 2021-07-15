@@ -2,7 +2,7 @@ package card;
 
 public class LanceDeLonginus extends Card {
 
-
+	protected String name = "Lance de Longinus";
 	protected CardAlignement LIGHT;
 	protected CardType EQUIPEMENT;
 	

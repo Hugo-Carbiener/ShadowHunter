@@ -2,6 +2,7 @@ package card;
 
 public class HacheTueuse extends Card {
 
+	protected String name = "Hache tueuse";
 	protected CardType EQUIPEMENT;
 	protected CardAlignement DARKNESS;
 	

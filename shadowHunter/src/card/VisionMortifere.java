@@ -6,7 +6,7 @@ import java.util.List;
 
 import Character.Role;
 
-public class VisionMortifère extends Card {
+public class VisionMortifere extends Card {
 
 	protected CardAlignement VISION;
 	protected List<Role> Condition = new ArrayList<Role>(Arrays.asList(Role.HUNTER));

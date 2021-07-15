@@ -11,7 +11,6 @@ import card.Card;
 import character.*;
 import character.Character;
 import player.Player;
-import area.*;
 import card.*;
 import player.ID;
 
@@ -24,7 +23,6 @@ public class Game {
 	private List<Card> deckVision;
 	private List<Area> areaList;
 	private List<Player> playerList;
-	private List<Area> areaList;
 	public static Random rand = new Random();
 	public static Scanner sc = new Scanner(System.in);
 
@@ -51,7 +49,6 @@ public class Game {
 	public void init() {
 		areaSetup();
 		deckSetup();	
-		areaSetup();
 		playersSetup();
 		characterSetup();
 		this.actualPlayer = this.playerList.get(0);
@@ -131,6 +128,13 @@ public class Game {
 			Area tempArea = temp.remove(rand.nextInt(temp.size()));
 			areaList.add(tempArea);
 		}
+		for(int i=0;i<6;i++) {
+			if(i%2==0) {
+				System.out.print("\nZone "+(i/2+1)+" : \n");
+			}
+			System.out.println(this.areaList.get(i).getName());
+		}
+		System.out.println();
 	}
 	
 	
@@ -186,10 +190,11 @@ public class Game {
 		String attackPossibleString;
 		List<Integer> attackPossibleIndex;
 		while(!end()) {
-			
+			System.out.println("\nIt is "+actualPlayer.getID().name()+" turn");
 			do {
 				dice = actualPlayer.diceArea();//lance le dé pour déter sa zone
 				cptArea=0;
+				System.out.println("Your rolled : "+dice);
 				if(dice!=7) {
 					while(cptArea<6 && !this.areaList.get(cptArea).getValues().contains(dice))//on localise l'area en fonction du résultat du dé
 					{
@@ -198,8 +203,9 @@ public class Game {
 				}
 				else {
 					System.out.println("Enter the area you want to go to : \n"
-				+this.areaList.get(0)+" : 0\n"+this.areaList.get(1)+" : 1\n"
-				+this.areaList.get(2)+" : 2\n"+this.areaList.get(3)+" : 3\n"+this.areaList.get(4)+" : 4\n"+this.areaList.get(5)+" : 5\n");
+				+this.areaList.get(0).getName()+" : 0\n"+this.areaList.get(1).getName()+" : 1\n"
+				+this.areaList.get(2).getName()+" : 2\n"+this.areaList.get(3).getName()+" : 3\n"+this.areaList.get(4).getName()
+				+" : 4\n"+this.areaList.get(5).getName()+" : 5\n");
 					cptArea = this.prompt();
 					while(cptArea > 5 || cptArea < 0) {
 						System.err.println("You need to enter a number between 0 and 5");
@@ -208,7 +214,7 @@ public class Game {
 				}
 			}while(this.areaList.get(cptArea).equals(this.actualPlayer.getCurrentArea()));//tant qu'il ne va pas se déplacer sur la zone dans laquelle il est
 			this.actualPlayer.setCurrentArea(this.areaList.get(cptArea));//se déplace
-			System.out.println("You moved to "+this.actualPlayer.getCurrentArea());
+			System.out.println("You moved to "+this.actualPlayer.getCurrentArea().getName());
 			actualPlayer.getCurrentArea().effect();//on applique l'effet de la zone
 			
 			
@@ -224,17 +230,21 @@ public class Game {
 				}
 			}
 			if(!attackPossibleString.equals("")) {//si une attaque est possible
-				System.out.println("You can attack : "+ attackPossibleString); //on print les cibles potentiels
+				attackPossibleString += "Don't Attack : -1\n";
+				attackPossibleIndex.add(-1);
+				System.out.println("You can attack : "+ attackPossibleString+"Enter the number to attack (or not)"); //on print les cibles potentiels
 				attackIndex = this.prompt();
 				while(!attackPossibleIndex.contains(attackIndex)) {//on vérifie que l'input correspond à une cible potentielle
 					System.err.println("You need to enter a number equivalent to one of them : " + attackPossibleString);
 					attackIndex = this.prompt();
 				}
-				dice = this.actualPlayer.diceDamage(); //on lance les dés de dégats
-				System.out.println("You dealed "+dice+" damage to the "+this.playerList.get(attackIndex).getID().name());
-				this.playerList.get(attackIndex).takeDamage(dice);//on inflige ces dégats au joueur cible
-				
-				//ajout de vol d'item si mort
+				if(attackIndex != -1) {
+					dice = this.actualPlayer.diceDamage(); //on lance les dés de dégats
+					System.out.println("You dealed "+dice+" damage to the "+this.playerList.get(attackIndex).getID().name());
+					this.playerList.get(attackIndex).takeDamage(dice);//on inflige ces dégats au joueur cible
+					
+					//ajout de vol d'item si mort
+				}
 			}
 			if(actualPlayerIndex < this.nbPlayer-1) //if the player is not the last
 				actualPlayerIndex++; //on incremente
@@ -246,7 +256,7 @@ public class Game {
 	
 	public boolean inAttackArea(Player player,List<Integer> attackArea) {
 		for(int areaIndex : attackArea) {
-			if(player.getCurrentArea().equals(this.areaList.get(areaIndex)))
+			if(player.getCurrentArea() != null  &&    player.getCurrentArea().equals(this.areaList.get(areaIndex)))
 				return true;
 		}
 		return false;

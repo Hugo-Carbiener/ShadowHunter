@@ -5,7 +5,7 @@ public class Monastere extends Area {
 	public Monastere() {
 		super();
 		this.values.add(6);
-		this.name = " Monastère";
+		this.name = "Monastère";
 	}
 	
 	public void effect() {

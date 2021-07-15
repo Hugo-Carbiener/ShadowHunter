@@ -2,6 +2,7 @@ package card;
 
 public class RituelDiabolique extends Card{
 	
+	protected String name = "Rituel diabolique";
 	protected CardType INSTANTUSE;
 	protected CardAlignement DARKNESS;
 	

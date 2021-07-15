@@ -44,6 +44,14 @@ public class Game {
 		areaList = new ArrayList<Area>();
 	}
 	
+	public void deadPlayer() {
+		for(int i = 0; i < this.nbPlayer; i++) {
+			if(this.playerList.get(i).getIsAlive() == false) {
+				this.playerList.remove(i);
+			}
+		}
+	}
+	
 	public int getNbPlayer() {return this.nbPlayer;}
 	public List<Area> getAreaList() {return this.areaList;}
 	public List<Player> getPlayer() {return this.playerList;}
@@ -259,6 +267,7 @@ public class Game {
 		return allCharacter;
 	}
 
+	
 	public List<Character> divisionAllCharacter(){
 		List<Character> allCharacter = this.allCharacterCreation();
 		for(int i=0;i<10;i++) {

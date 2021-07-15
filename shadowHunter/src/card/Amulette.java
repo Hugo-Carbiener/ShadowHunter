@@ -2,6 +2,7 @@ package card;
 
 public class Amulette extends Card {
 
+	protected String name = "Amulette";
 	protected CardAlignement LIGHT;
 	protected CardType EQUIPEMENT;
 	

@@ -2,6 +2,7 @@ package card;
 
 public class BarreDeChocolat extends Card {
 	
+	protected String name = "Barre de chocolat";
 	protected CardAlignement LIGHT;
 	protected CardType INSTANTUSE;
 	

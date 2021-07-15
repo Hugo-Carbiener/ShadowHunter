@@ -8,6 +8,7 @@ import character.Role;
 
 public class VisionEnivrante extends Card {
 
+	protected String name = "Vision enivrante";
 	protected CardAlignement VISION;
 	protected List<Role> Condition = new ArrayList<Role>(Arrays.asList(Role.NEUTRAL, Role.HUNTER));
 	

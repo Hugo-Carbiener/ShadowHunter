@@ -2,6 +2,7 @@ package card;
 
 public class PeauDeBanane extends Card {
 
+	protected String name = "Peau de banane";
 	protected CardType INSTANTUSE;
 	protected CardAlignement DARKNESS;
 	

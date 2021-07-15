@@ -2,7 +2,7 @@ package card;
 
 public class SabreHanteMasamune extends Card{
 	
-
+	protected String name = "Sabre hanté Masamune";
 	protected CardType EQUIPEMENT;
 	protected CardAlignement DARKNESS;
 	

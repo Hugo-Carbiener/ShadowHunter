@@ -2,6 +2,7 @@ package card;
 
 public class BoussoleMystique extends Card {
 
+	protected String name = "Boussole mystique";
 	protected CardAlignement LIGHT;
 	protected CardType EQUIPEMENT;
 	

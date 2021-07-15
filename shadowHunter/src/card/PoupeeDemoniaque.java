@@ -2,7 +2,7 @@ package card;
 
 public class PoupeeDemoniaque extends Card {
 
-
+	protected String name = "Poupée démoniaque";
 	protected CardType INSTANTUSE;
 	protected CardAlignement DARKNESS;
 

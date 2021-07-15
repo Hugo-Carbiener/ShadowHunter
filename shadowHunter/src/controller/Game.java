@@ -204,11 +204,11 @@ public class Game {
 		while(!end()) {
 			System.out.println("\nIt is "+actualPlayer.getID().name()+" turn");
 			do {
-				dice = actualPlayer.diceArea();//lance le dé pour déter sa zone
+				dice = actualPlayer.diceArea();//lance le dï¿½ pour dï¿½ter sa zone
 				cptArea=0;
 				System.out.println("Your rolled : "+dice);
 				if(dice!=7) {
-					while(cptArea<6 && !this.areaList.get(cptArea).getValues().contains(dice))//on localise l'area en fonction du résultat du dé
+					while(cptArea<6 && !this.areaList.get(cptArea).getValues().contains(dice))//on localise l'area en fonction du rï¿½sultat du dï¿½
 					{
 						cptArea++;
 					}
@@ -224,8 +224,8 @@ public class Game {
 						cptArea = this.prompt();
 					}
 				}
-			}while(this.areaList.get(cptArea).equals(this.actualPlayer.getCurrentArea()));//tant qu'il ne va pas se déplacer sur la zone dans laquelle il est
-			this.actualPlayer.setCurrentArea(this.areaList.get(cptArea));//se déplace
+			}while(this.areaList.get(cptArea).equals(this.actualPlayer.getCurrentArea()));//tant qu'il ne va pas se dï¿½placer sur la zone dans laquelle il est
+			this.actualPlayer.setCurrentArea(this.areaList.get(cptArea));//se dï¿½place
 			System.out.println("You moved to "+this.actualPlayer.getCurrentArea().getName());
 			actualPlayer.getCurrentArea().effect();//on applique l'effet de la zone
 			
@@ -246,14 +246,14 @@ public class Game {
 				attackPossibleIndex.add(-1);
 				System.out.println("You can attack : "+ attackPossibleString+"Enter the number to attack (or not)"); //on print les cibles potentiels
 				attackIndex = this.prompt();
-				while(!attackPossibleIndex.contains(attackIndex)) {//on vérifie que l'input correspond à une cible potentielle
+				while(!attackPossibleIndex.contains(attackIndex)) {//on vï¿½rifie que l'input correspond ï¿½ une cible potentielle
 					System.err.println("You need to enter a number equivalent to one of them : " + attackPossibleString);
 					attackIndex = this.prompt();
 				}
 				if(attackIndex != -1) {
-					dice = this.actualPlayer.diceDamage(); //on lance les dés de dégats
+					dice = this.actualPlayer.diceDamage(); //on lance les dï¿½s de dï¿½gats
 					System.out.println("You dealed "+dice+" damage to the "+this.playerList.get(attackIndex).getID().name());
-					this.playerList.get(attackIndex).takeDamage(dice);//on inflige ces dégats au joueur cible
+					this.playerList.get(attackIndex).takeDamage(dice);//on inflige ces dï¿½gats au joueur cible
 					
 					//ajout de vol d'item si mort
 				}
@@ -289,6 +289,34 @@ public class Game {
 		}
 		
 		return attackArea;
+	}
+	
+	
+	public void playVisionCard() {
+		Card drawCard = this.drawVision.remove(this.drawVision.size()-1);
+		drawCard.effect(); //Faudra passer l'instance courante de Game en paramï¿½tre pour activer l'effet de la carte
+	}
+	
+	public void playDarknessCard() {
+		Card drawCard = this.drawDarkness.remove(this.drawDarkness.size()-1);
+		drawCard.effect(); //Faudra passer l'instance courante de Game en paramï¿½tre pour activer l'effet de la carte
+	}
+	
+	public void playLightCard() {
+		Card drawCard = this.drawLight.remove(this.drawLight.size()-1);
+		drawCard.effect(); //Faudra passer l'instance courante de Game en paramï¿½tre pour activer l'effet de la carte
+	}
+	
+	public List<Player> getPlayerList() {
+		return this.playerList;
+	}
+	
+	public Player getActualPlayer() {
+		return this.actualPlayer;
+	}
+	
+	public int prompt() {
+		return 0;
 	}
 
 	public boolean end() {//a modifier

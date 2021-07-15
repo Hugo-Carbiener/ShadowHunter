@@ -6,6 +6,7 @@ import java.util.Random;
 import area.Area;
 import card.Card;
 import character.Character;
+import controller.Game;
 
 public class Player {
 	private boolean isAlive=true;

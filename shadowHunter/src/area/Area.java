@@ -3,6 +3,8 @@ package area;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.Game;
+
 public abstract class Area {
 	
 	protected List<Integer> values;
@@ -12,14 +14,14 @@ public abstract class Area {
 		this.values = new ArrayList<>();
 	}
 	
-	public List<Integer> getValues(){
-		return values;
-	}
-	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
-	public abstract void effect();
+	public List<Integer> getValues() {
+		return this.values;
+	}
+	
+	public abstract void effect(Game game);
 	
 }

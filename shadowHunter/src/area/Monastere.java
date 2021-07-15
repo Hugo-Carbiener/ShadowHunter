@@ -1,5 +1,7 @@
 package area;
 
+import controller.Game;
+
 public class Monastere extends Area {
 	
 	public Monastere() {
@@ -8,8 +10,9 @@ public class Monastere extends Area {
 		this.name = "Monastère";
 	}
 	
-	public void effect() {
+	public void effect(Game game) {
 		//Vous pouvez piocher une carte Lumière
+		game.playLightCard();
 	}
 	
 }

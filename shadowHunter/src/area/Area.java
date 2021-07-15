@@ -13,4 +13,8 @@ public abstract class Area {
 	
 	public abstract void effect();
 	
+	public List<Integer> getValues(){
+		return values;
+	}
+	
 }

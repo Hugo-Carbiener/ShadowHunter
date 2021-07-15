@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import area.*;
 import card.Card;
 import character.*;
 import character.Character;
@@ -18,6 +19,7 @@ public class Game {
 	private List<Card> deckDarkness;
 	private List<Card> deckVision;
 	private List<Player> playerList;
+	private List<Area> areaList;
 	public static Random rand = new Random();
 
 	public void init() {
@@ -85,7 +87,23 @@ public class Game {
 	}
 
 	public void loop() {
-
+		int dice,cptArea;
+		do {
+			dice = actualPlayer.diceArea();//lance le dé pour déter sa zone
+			cptArea=0;
+			if(dice!=7) {
+				while(cptArea<6 && !this.areaList.get(cptArea).getValues().contains(dice))//on localise l'area en fonction du résultat du dé
+				{
+					cptArea++;
+				}
+			}
+			else {
+				//need input pour choisir zone
+			}
+		}while(this.areaList.get(cptArea).equals(this.actualPlayer.getCurrentArea()));//tant qu'il ne va pas se déplacer sur la zone dans laquelle il est
+		this.actualPlayer.setCurrentArea(this.areaList.get(cptArea));//se déplace
+		actualPlayer.getCurrentArea().effect();//on applique l'effet de la zone
+		
 	}
 
 	public void end() {

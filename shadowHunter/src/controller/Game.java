@@ -9,6 +9,7 @@ import card.Card;
 import character.*;
 import character.Character;
 import player.Player;
+import area.*;
 import card.*;
 import player.ID;
 import player.Player;
@@ -20,6 +21,7 @@ public class Game {
 	private List<Card> deckLight;
 	private List<Card> deckDarkness;
 	private List<Card> deckVision;
+	private List<Area> areaList;
 	private List<Player> playerList;
 	public static Random rand = new Random();
 
@@ -38,10 +40,12 @@ public class Game {
 		deckDarkness = new ArrayList<Card>();
 		deckVision = new ArrayList<Card>();
 		playerList = new ArrayList<Player>();	
+		areaList = new ArrayList<Area>();
 	}
 	
 	public void init() {
 		deckSetup();	
+		areaSetup();
 		playersSetup();
 	}
 
@@ -105,12 +109,22 @@ public class Game {
 		System.out.println("Deck setup completed");
 	}
 	
+	public void areaSetup() {
+		areaList.add(new AntreDeLermite());
+		areaList.add(new Cimetiere());
+		areaList.add(new ForetHantee());
+		areaList.add(new Monastere());
+		areaList.add(new PorteDeLoutreMonde());
+		areaList.add(new SanctuaireAncien());
+	}
+	
 	public int prompt() {
 		Scanner sc = new Scanner(System.in);
 		int input = sc.nextInt();
 		//sc.close();
 		return input;
 	}
+	
 	
 	public void playersSetup() {
 		System.out.println("Players setup initiated");

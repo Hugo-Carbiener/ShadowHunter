@@ -247,7 +247,7 @@ public class Game {
 		allCharacter.add(new Ellen());
 		allCharacter.add(new Franklin());
 		allCharacter.add(new Fuka());
-		allCharacter.add(new George());
+		allCharacter.add(new Georges());
 		allCharacter.add(new Gregor());
 		allCharacter.add(new Momie());
 		allCharacter.add(new Metamorphe());

@@ -3,16 +3,15 @@ package character;
 import controller.Game;
 import player.Player;
 
-public class Ellen extends Character {
+public class Georges extends Character {
 
-	public Ellen() {
-		super(10,"Ellen",Role.HUNTER);
+	public Georges() {
+		super(14,"Georges",Role.HUNTER);
 	}
-	
 	
 	@Override
 	public void capacity() {
-		// perte de capacit� pour la cible
+		// d� 4 de d�gat
 		//unique
 	}
 
@@ -33,4 +32,5 @@ public class Ellen extends Character {
 			return false;
 		}
 	}
+
 }

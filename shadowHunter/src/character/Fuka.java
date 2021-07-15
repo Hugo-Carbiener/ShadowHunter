@@ -32,7 +32,6 @@ public class Fuka extends Character {
 		} else {
 			return false;
 		}
-		
 	}
 
 }

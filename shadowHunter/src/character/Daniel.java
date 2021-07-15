@@ -18,14 +18,14 @@ public class Daniel extends Character {
 	public boolean victoryCondition(Game game) {
 		
 		//if is the first dead
-		if (! player.getIsAlive() && game.getPlayer().size() == game.getNbPlayer() - 1) {
+		if (! player.getIsAlive() && game.getAlivePlayers().size() == game.getNbPlayer() - 1) {
 			return true;
 		}
 		
 		//if all shadows dead 
 		boolean shadowsLeft = false;
 		//Check if some shadows are still alive
-		for(Player player : game.getPlayer()) {
+		for(Player player : game.getAlivePlayers()) {
 			if (player.getCharacter().role == Role.SHADOW) {
 				shadowsLeft = true; //There are still shadows left, hunter hasn't won yet
 			}

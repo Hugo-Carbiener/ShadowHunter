@@ -16,7 +16,7 @@ public class Catherine extends Character {
 
 	public boolean victoryCondition(Game game) {
 		//Be the first to die
-		if (! player.getIsAlive() && game.getPlayer().size() == game.getNbPlayer() - 1) {
+		if (! player.getIsAlive() && game.getAlivePlayers().size() == game.getNbPlayer() - 1) {
 			return true;
 		} else if (player.getIsAlive() && game.getNbPlayer() <= 2) {//Be one of the two last characters alive
 			return true;
@@ -24,5 +24,4 @@ public class Catherine extends Character {
 			return false;
 		}
 	}
-
 }

@@ -19,7 +19,7 @@ public class Georges extends Character {
 		
 		boolean shadowsLeft = false;
 		//Check if some shadows are still alive
-		for(Player player : game.getPlayer()) {
+		for(Player player : game.getAlivePlayers()) {
 			if (player.getCharacter().role == Role.SHADOW) {
 				shadowsLeft = true; //There are still shadows left, hunter hasn't won yet
 			}

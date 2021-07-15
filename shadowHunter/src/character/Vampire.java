@@ -20,13 +20,13 @@ public class Vampire extends Character {
 		boolean huntersLeft = false;
 		boolean neutralsLeft = false;
 		//Check if some hunters are still alive
-		for(Player player : game.getPlayer()) {
+		for(Player player : game.getAlivePlayers()) {
 			if (player.getCharacter().role == Role.HUNTER) {
 				huntersLeft = true; //There are still hunters left, shadow hasn't won yet
 			}
 		}
 		//Check if some neutrals are still alive
-		for(Player player : game.getPlayer()) {
+		for(Player player : game.getAlivePlayers()) {
 			if (player.getCharacter().role == Role.NEUTRAL) {
 				neutralsLeft = true;
 			}

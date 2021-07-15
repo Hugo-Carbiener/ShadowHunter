@@ -44,7 +44,9 @@ public class Game {
 		areaList = new ArrayList<Area>();
 	}
 	
+	public int getNbPlayer() {return this.nbPlayer;}
 	public List<Area> getAreaList() {return this.areaList;}
+	public List<Player> getPlayer() {return this.playerList;}
 	
 	public void init() {
 		deckSetup();	
@@ -223,13 +225,7 @@ public class Game {
 		int randInt;
 		for(int i=0;i<this.nbPlayer;i++) {
 			randInt=rand.nextInt(this.nbPlayer-i);
-			Player curPlayer = this.playerList.get(i);
-			//Character chosen randomly
-			Character curCharacter = allCharacter.get(randInt);
-			//Player.character = character
-			curPlayer.setCharacter(curCharacter);
-			//Character.player = player
-			curCharacter.setPlayer(curPlayer);
+			this.playerList.get(i).setCharacter(allCharacter.get(randInt));
 			allCharacter.remove(randInt);
 		}
 

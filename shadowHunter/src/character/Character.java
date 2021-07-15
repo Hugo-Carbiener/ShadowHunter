@@ -22,5 +22,5 @@ public abstract class Character {
 	}
 	
 	public abstract void capacity();
-	public abstract void victoryCondition();
+	public abstract boolean victoryCondition();
 }

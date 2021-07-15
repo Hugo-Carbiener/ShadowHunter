@@ -15,8 +15,14 @@ public class Catherine extends Character {
 	}
 
 	public boolean victoryCondition(Game game) {
-		// mourir en premier ou �tre parmi les deux derniers vivants
-		return false;
+		//Be the first to die
+		if (! player.getIsAlive() && game.getPlayer().size() == game.getNbPlayer() - 1) {
+			return true;
+		} else if (player.getIsAlive() && game.getNbPlayer() <= 2) {//Be one of the two last characters alive
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

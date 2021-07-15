@@ -18,8 +18,8 @@ public class SanctuaireAncien extends Area {
 	public void effect(Game game) {
 		//Vous pouvez voler une carte �quipement � un autre joueur
 		List<Player> playersEquipment = new ArrayList<>();
-		for(Player p : game.getPlayerList()) {
-			if(!p.getEquipment().isEmpty() && !p.getID().equals(game.getActualPlayer().getID())) {
+		for(Player p : game.getAlivePlayers()) {
+			if(!p.getEquipment().isEmpty() && !p.getID().equals(game.getCurrentPlayer().getID())) {
 				playersEquipment.add(p);
 			}
 		}
@@ -50,7 +50,7 @@ public class SanctuaireAncien extends Area {
 			choosenEquipment = game.prompt();
 		}
 		Card card = player.getEquipment().remove(choosenEquipment);
-		game.getActualPlayer().addEquipment(card);
+		game.getCurrentPlayer().addEquipment(card);
 	}
 
 }

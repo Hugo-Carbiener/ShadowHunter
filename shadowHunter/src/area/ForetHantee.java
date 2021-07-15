@@ -16,9 +16,9 @@ public class ForetHantee extends Area{
 		int cpt = 0;
 		int choosenPlayer = -1;
 		int choosenAction = -1;
-		while(choosenPlayer < 0 || choosenPlayer >= game.getPlayerList().size()) {
+		while(choosenPlayer < 0 || choosenPlayer >= game.getAlivePlayers().size()) {
 			System.out.println("Choose your target among the players alive :");
-			for(Player p : game.getPlayerList()) {
+			for(Player p : game.getAlivePlayers()) {
 				System.out.println(" " + p.getID() + " : " + cpt);
 				cpt++;
 			}
@@ -29,7 +29,7 @@ public class ForetHantee extends Area{
 			System.out.println("\nChoose the action you want to do :\n 2 Wound : 0\n 1 Heal : 1\n");
 			choosenAction = game.prompt();
 		}
-		Player player = game.getPlayerList().get(choosenPlayer);
+		Player player = game.getAlivePlayers().get(choosenPlayer);
 		if(choosenAction == 0) {
 			player.setDamageTaken(player.getDamageTaken() + 2);
 		}

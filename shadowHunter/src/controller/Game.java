@@ -17,7 +17,7 @@ import player.ID;
 public class Game {
 
 	private int nbPlayer;
-	private Player actualPlayer;
+	private Player currentPlayer;
 	private List<Card> deckLight;
 	private List<Card> deckDarkness;
 	private List<Card> deckVision;
@@ -57,13 +57,14 @@ public class Game {
 	public List<Area> getAreaList() {return this.areaList;}
 	public List<Player> getAlivePlayers() {return this.alivePlayers;}
 	public List<Player> getAllPlayers() {return this.allPlayers;}
+	public Player getCurrentPlayer() {return this.currentPlayer;}
 	
 	public void init() {
 		areaSetup();
 		deckSetup();	
 		playersSetup();
 		characterSetup();
-		this.actualPlayer = this.playerList.get(0);
+		this.currentPlayer = this.alivePlayers.get(0);
 	}
 
 	public void deckSetup() {
@@ -202,9 +203,9 @@ public class Game {
 		String attackPossibleString;
 		List<Integer> attackPossibleIndex;
 		while(!end()) {
-			System.out.println("\nIt is "+actualPlayer.getID().name()+" turn");
+			System.out.println("\nIt is "+currentPlayer.getID().name()+" turn");
 			do {
-				dice = actualPlayer.diceArea();//lance le d� pour d�ter sa zone
+				dice = currentPlayer.diceArea();//lance le d� pour d�ter sa zone
 				cptArea=0;
 				System.out.println("Your rolled : "+dice);
 				if(dice!=7) {
@@ -224,10 +225,10 @@ public class Game {
 						cptArea = this.prompt();
 					}
 				}
-			}while(this.areaList.get(cptArea).equals(this.actualPlayer.getCurrentArea()));//tant qu'il ne va pas se d�placer sur la zone dans laquelle il est
-			this.actualPlayer.setCurrentArea(this.areaList.get(cptArea));//se d�place
-			System.out.println("You moved to "+this.actualPlayer.getCurrentArea().getName());
-			actualPlayer.getCurrentArea().effect();//on applique l'effet de la zone
+			}while(this.areaList.get(cptArea).equals(this.currentPlayer.getCurrentArea()));//tant qu'il ne va pas se d�placer sur la zone dans laquelle il est
+			this.currentPlayer.setCurrentArea(this.areaList.get(cptArea));//se d�place
+			System.out.println("You moved to "+this.currentPlayer.getCurrentArea().getName());
+			currentPlayer.getCurrentArea().effect(this);//on applique l'effet de la zone
 			
 			
 			attackPossibleString ="";
@@ -235,9 +236,9 @@ public class Game {
 			
 			List<Integer> attackArea = determineAttackArea(); //donne tous les index des zones attaquables
 			for(int i=0;i<this.nbPlayer;i++) {//parcoure tous les joueurs
-				if(!this.actualPlayer.equals(this.playerList.get(i)) && inAttackArea(this.playerList.get(i),attackArea)) {
+				if(!this.currentPlayer.equals(this.alivePlayers.get(i)) && inAttackArea(this.alivePlayers.get(i),attackArea)) {
 					//si le joueur n'est pas le joueur actuel et que le joueur et dans une zone attaquable
-					attackPossibleString+=this.playerList.get(i).getID().name()+" : "+i+"\n";//on ajoute ce joueur dans la liste des joueurs attaquables
+					attackPossibleString+=this.alivePlayers.get(i).getID().name()+" : "+i+"\n";//on ajoute ce joueur dans la liste des joueurs attaquables
 					attackPossibleIndex.add(i);
 				}
 			}
@@ -251,9 +252,9 @@ public class Game {
 					attackIndex = this.prompt();
 				}
 				if(attackIndex != -1) {
-					dice = this.actualPlayer.diceDamage(); //on lance les d�s de d�gats
-					System.out.println("You dealed "+dice+" damage to the "+this.playerList.get(attackIndex).getID().name());
-					this.playerList.get(attackIndex).takeDamage(dice);//on inflige ces d�gats au joueur cible
+					dice = this.currentPlayer.diceDamage(); //on lance les d�s de d�gats
+					System.out.println("You dealed "+dice+" damage to the "+this.alivePlayers.get(attackIndex).getID().name());
+					this.alivePlayers.get(attackIndex).takeDamage(dice);//on inflige ces d�gats au joueur cible
 					
 					//ajout de vol d'item si mort
 				}
@@ -262,7 +263,7 @@ public class Game {
 				actualPlayerIndex++; //on incremente
 			else
 				actualPlayerIndex = 0;//sinon on repart au premier joueur
-			this.actualPlayer = this.playerList.get(actualPlayerIndex); //on modifie l'actual player
+			this.currentPlayer = this.alivePlayers.get(actualPlayerIndex); //on modifie l'actual player
 		}
 	}
 	
@@ -277,7 +278,7 @@ public class Game {
 	public List<Integer> determineAttackArea(){
 		List<Integer> attackArea = new ArrayList<Integer>();
 		int i=0;
-		while(!this.actualPlayer.getCurrentArea().equals(this.areaList.get(i)))
+		while(!this.currentPlayer.getCurrentArea().equals(this.areaList.get(i)))
 			i++;
 		attackArea.add(i);
 		if(i%2==0) {
@@ -293,34 +294,25 @@ public class Game {
 	
 	
 	public void playVisionCard() {
-		Card drawCard = this.drawVision.remove(this.drawVision.size()-1);
+		Card drawCard = this.deckVision.remove(this.deckVision.size()-1);
 		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
 	}
 	
 	public void playDarknessCard() {
-		Card drawCard = this.drawDarkness.remove(this.drawDarkness.size()-1);
+		Card drawCard = this.deckDarkness.remove(this.deckDarkness.size()-1);
 		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
 	}
 	
 	public void playLightCard() {
-		Card drawCard = this.drawLight.remove(this.drawLight.size()-1);
+		Card drawCard = this.deckLight.remove(this.deckLight.size()-1);
 		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
 	}
 	
-	public List<Player> getPlayerList() {
-		return this.playerList;
-	}
-	
-	public Player getActualPlayer() {
-		return this.actualPlayer;
-	}
-	
-	public int prompt() {
-		return 0;
-	}
+
+
 
 	public boolean end() {//a modifier
-		if(this.actualPlayer.equals(this.playerList.get(nbPlayer-1))) {
+		if(this.currentPlayer.equals(this.alivePlayers.get(nbPlayer-1))) {
 			sc.close();
 			return true;
 		}
@@ -411,7 +403,7 @@ public class Game {
 	
 	public void printCharacter() {
 		for(int i=0;i<nbPlayer;i++) {
-			System.out.println(this.playerList.get(i).getCharacter().getName());
+			System.out.println(this.alivePlayers.get(i).getCharacter().getName());
 		}
 	}
 

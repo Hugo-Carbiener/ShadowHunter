@@ -13,9 +13,10 @@ public class Bob extends Character{
 	}
 	
 	public boolean victoryCondition(Game game) {
-		//5 cartes �quipements
-		return false;
+		if (player.getEquipment().size() >= 5) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-	
-	
 }

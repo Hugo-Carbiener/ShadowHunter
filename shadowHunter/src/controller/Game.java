@@ -11,6 +11,7 @@ import card.Card;
 import character.*;
 import character.Character;
 import player.Player;
+import area.*;
 import card.*;
 import player.ID;
 
@@ -21,6 +22,7 @@ public class Game {
 	private List<Card> deckLight;
 	private List<Card> deckDarkness;
 	private List<Card> deckVision;
+	private List<Area> areaList;
 	private List<Player> playerList;
 	private List<Area> areaList;
 	public static Random rand = new Random();
@@ -41,11 +43,15 @@ public class Game {
 		deckDarkness = new ArrayList<Card>();
 		deckVision = new ArrayList<Card>();
 		playerList = new ArrayList<Player>();	
+		areaList = new ArrayList<Area>();
 	}
+	
+	public List<Area> getAreaList() {return this.areaList;}
 	
 	public void init() {
 		areaSetup();
 		deckSetup();	
+		areaSetup();
 		playersSetup();
 		characterSetup();
 		this.actualPlayer = this.playerList.get(0);
@@ -111,11 +117,29 @@ public class Game {
 		System.out.println("Deck setup completed");
 	}
 	
+	public void areaSetup() {
+		List<Area> temp = new ArrayList<>();
+		temp.add(new AntreDeLermite());
+		temp.add(new Cimetiere());
+		temp.add(new ForetHantee());
+		temp.add(new Monastere());
+		temp.add(new PorteDeLoutreMonde());
+		temp.add(new SanctuaireAncien());
+		
+		//Fill areaList randomly
+		while(temp.size() > 0) {
+			Area tempArea = temp.remove(rand.nextInt(temp.size()));
+			areaList.add(tempArea);
+		}
+	}
+	
+	
 	public int prompt() {
 		int input = sc.nextInt();
 		//sc.close();
 		return input;
 	}
+	
 	
 	public void playersSetup() {
 		System.out.println("Players setup initiated");

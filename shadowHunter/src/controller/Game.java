@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import card.Card;
@@ -42,6 +43,8 @@ public class Game {
 		playerList = new ArrayList<Player>();	
 		areaList = new ArrayList<Area>();
 	}
+	
+	public List<Area> getAreaList() {return this.areaList;}
 	
 	public void init() {
 		deckSetup();	
@@ -110,13 +113,21 @@ public class Game {
 	}
 	
 	public void areaSetup() {
-		areaList.add(new AntreDeLermite());
-		areaList.add(new Cimetiere());
-		areaList.add(new ForetHantee());
-		areaList.add(new Monastere());
-		areaList.add(new PorteDeLoutreMonde());
-		areaList.add(new SanctuaireAncien());
+		List<Area> temp = new ArrayList<>();
+		temp.add(new AntreDeLermite());
+		temp.add(new Cimetiere());
+		temp.add(new ForetHantee());
+		temp.add(new Monastere());
+		temp.add(new PorteDeLoutreMonde());
+		temp.add(new SanctuaireAncien());
+		
+		//Fill areaList randomly
+		while(temp.size() > 0) {
+			Area tempArea = temp.remove(rand.nextInt(temp.size()));
+			areaList.add(tempArea);
+		}
 	}
+	
 	
 	public int prompt() {
 		Scanner sc = new Scanner(System.in);

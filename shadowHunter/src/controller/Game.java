@@ -44,9 +44,11 @@ public class Game {
 	}
 	
 	public void init() {
+		areaSetup();
 		deckSetup();	
 		playersSetup();
-		characterSetUp();
+		characterSetup();
+		this.actualPlayer = this.playerList.get(0);
 	}
 
 	public void deckSetup() {
@@ -156,7 +158,7 @@ public class Game {
 	}
 
 	public void loop() {
-		int dice,cptArea,attackIndex;
+		int dice,cptArea,attackIndex,actualPlayerIndex=0;
 		String attackPossibleString;
 		List<Integer> attackPossibleIndex;
 		while(!end()) {
@@ -182,6 +184,7 @@ public class Game {
 				}
 			}while(this.areaList.get(cptArea).equals(this.actualPlayer.getCurrentArea()));//tant qu'il ne va pas se déplacer sur la zone dans laquelle il est
 			this.actualPlayer.setCurrentArea(this.areaList.get(cptArea));//se déplace
+			System.out.println("You moved to "+this.actualPlayer.getCurrentArea());
 			actualPlayer.getCurrentArea().effect();//on applique l'effet de la zone
 			
 			
@@ -209,7 +212,11 @@ public class Game {
 				
 				//ajout de vol d'item si mort
 			}
-			
+			if(actualPlayerIndex < this.nbPlayer-1) //if the player is not the last
+				actualPlayerIndex++; //on incremente
+			else
+				actualPlayerIndex = 0;//sinon on repart au premier joueur
+			this.actualPlayer = this.playerList.get(actualPlayerIndex); //on modifie l'actual player
 		}
 	}
 	
@@ -247,7 +254,7 @@ public class Game {
 		
 	}
 
-	public void characterSetUp() {
+	public void characterSetup() {
 		List<Character> allCharacter = this.divisionAllCharacter();
 		switch(this.nbPlayer) {
 		case 4:

@@ -6,6 +6,7 @@ public class PorteDeLoutreMonde extends Area {
 		super();
 		this.values.add(4);
 		this.values.add(5);
+		this.name = "Porte de l'outre monde";
 	}
 	
 	public void effect() {

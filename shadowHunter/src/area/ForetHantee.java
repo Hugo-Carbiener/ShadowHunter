@@ -5,6 +5,7 @@ public class ForetHantee extends Area{
 	public ForetHantee() {
 		super();
 		this.values.add(9);
+		this.name = "Forêt hantée";
 	}
 	
 	public void effect() {

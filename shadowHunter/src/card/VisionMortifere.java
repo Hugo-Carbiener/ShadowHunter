@@ -10,6 +10,10 @@ public class VisionMortifere extends Card {
 
 	protected CardAlignement VISION;
 	protected List<Role> Condition = new ArrayList<>(Arrays.asList(Role.HUNTER));
+	
+	public VisionMortifere() {
+		this.name = "Vision Mortifère";
+	}
 
 	public void effect() {
 		//Subis une blessure

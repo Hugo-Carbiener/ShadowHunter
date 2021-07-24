@@ -2,9 +2,12 @@ package card;
 
 public class AvenementSupreme extends Card {
 
-	protected String name = "Avènement suprême";
 	protected CardAlignement LIGHT;
 	protected CardType INSTANTUSE;
+	
+	public AvenementSupreme() {
+		this.name = "Avènement suprême";
+	}
 	
 	public void effect() {
 		/* Si vous êtes Hunter, vous pouvez révéler votre identité

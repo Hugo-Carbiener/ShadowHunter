@@ -8,7 +8,7 @@ public class ForetHantee extends Area{
 	public ForetHantee() {
 		super();
 		this.values.add(9);
-		this.name = "For�t Hant�e";
+		this.name = "Foret Hantee";
 	}
 	
 	public void effect(Game game) {
@@ -30,8 +30,9 @@ public class ForetHantee extends Area{
 			choosenAction = game.prompt();
 		}
 		Player player = game.getAlivePlayers().get(choosenPlayer);
+		System.out.println("Current Damage Taken by " + player.getID() + " : " + player.getDamageTaken());
 		if(choosenAction == 0) {
-			player.setDamageTaken(player.getDamageTaken() + 2);
+			player.takeDamage(2);
 		}
 		else {
 			player.setDamageTaken(player.getDamageTaken() - 1);
@@ -39,6 +40,7 @@ public class ForetHantee extends Area{
 				player.setDamageTaken(0);
 			}
 		}
+		System.out.println("New Damage Taken by " + player.getID() + " : " + player.getDamageTaken());
 	}
 
 }

@@ -29,10 +29,17 @@ public class SanctuaireAncien extends Area {
 		}
 		int cpt = 0;
 		int choosenPlayer = -1;
+		String str = "-> Cards : ";
 		while(choosenPlayer < 0 || choosenPlayer >= playersEquipment.size()) {
 			System.out.println("Choose your target among the players who has equipment cards :");
 			for(Player p : playersEquipment) {
 				System.out.println(" " + p.getID() + " : " + cpt);
+				for(Card card : p.getEquipment()) {
+					str = str + card.getName() + " | ";
+				}
+				str = str.substring(0, str.length()-3);
+				System.out.println(str);
+				str = "-> Cards : ";
 				cpt++;
 			}
 			cpt = 0;
@@ -51,6 +58,15 @@ public class SanctuaireAncien extends Area {
 		}
 		Card card = player.getEquipment().remove(choosenEquipment);
 		game.getCurrentPlayer().addEquipment(card);
+		
+		System.out.println("List of cards of the choosen player :");
+		for(Card c : player.getEquipment()) {
+			System.out.println(" " + c.getName());
+		}
+		System.out.println("List of current player cards :");
+		for(Card c : game.getCurrentPlayer().getEquipment()) {
+			System.out.println(" " + c.getName());
+		}
 	}
 
 }

@@ -2,9 +2,12 @@ package card;
 
 public class BrocheDeChance extends Card {
 
-	protected String name = "Broche de chance";
 	protected CardAlignement LIGHT;
 	protected CardType EQUIPEMENT;
+	
+	public BrocheDeChance() {
+		this.name = "Broche de chance";
+	}
 
 	public void effect() {
 		/* Un joueur dans la Foret hant�e ne peut utiliser le pouvoir du Lieu

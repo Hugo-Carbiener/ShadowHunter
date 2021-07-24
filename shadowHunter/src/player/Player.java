@@ -1,5 +1,6 @@
 package player;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -18,6 +19,10 @@ public class Player {
 	
 	
 	public static Random rand = new Random(); 
+	
+	public Player() {
+		this.equipment = new ArrayList<>();
+	}
 	
 	public int diceArea() {
 		return (rand.nextInt(6 - 1 + 1) + 1 ) + (rand.nextInt(4 - 1 + 1) + 1);

@@ -2,9 +2,12 @@ package card;
 
 public class BarreDeChocolat extends Card {
 	
-	protected String name = "Barre de chocolat";
 	protected CardAlignement LIGHT;
 	protected CardType INSTANTUSE;
+	
+	public BarreDeChocolat() {
+		this.name = "Barre de chocolat";
+	}
 	
 	public void effect() {
 		/* Si vous êtes Allie, Agnès, Emi, Momie ou Métamorphe

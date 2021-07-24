@@ -45,6 +45,26 @@ public class Game {
 		areaList = new ArrayList<Area>();
 	}
 	
+	public void testArea() {
+		/*System.out.println("");
+		this.areaList.get(0).effect(this);
+		
+		System.out.println("");
+		this.areaList.get(1).effect(this);
+		
+		System.out.println("");
+		this.areaList.get(2).effect(this);
+		
+		System.out.println("");
+		this.areaList.get(3).effect(this);
+		
+		System.out.println("");
+		this.areaList.get(4).effect(this);*/
+		
+		this.areaList.get(5).effect(this);
+		
+	}
+	
 	public void deadPlayer() {
 		for(int i = 0; i < this.nbPlayer; i++) {
 			if(this.alivePlayers.get(i).getIsAlive() == false) {
@@ -138,8 +158,8 @@ public class Game {
 		
 		//Fill areaList randomly
 		while(temp.size() > 0) {
-			Area tempArea = temp.remove(rand.nextInt(temp.size()));
-			areaList.add(tempArea);
+			//Area tempArea = temp.remove(rand.nextInt(temp.size()));
+			areaList.add(temp.remove(0));
 		}
 		for(int i=0;i<6;i++) {
 			if(i%2==0) {
@@ -190,6 +210,11 @@ public class Game {
 			 alivePlayers.get(i - 1).setID(color);
 			 System.out.println("You chose " + color + "\n");
 			 availableIDs.remove(color);
+		}
+		
+		for(Player p : this.alivePlayers) {
+			p.addEquipment(this.deckLight.remove(rand.nextInt(this.deckLight.size())));
+			p.addEquipment(this.deckLight.remove(rand.nextInt(this.deckLight.size())));
 		}
 		System.out.println("Players setup completed");
 	}
@@ -296,16 +321,19 @@ public class Game {
 	public void playVisionCard() {
 		Card drawCard = this.deckVision.remove(this.deckVision.size()-1);
 		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
+		System.out.println("Play Vision Card");
 	}
 	
 	public void playDarknessCard() {
 		Card drawCard = this.deckDarkness.remove(this.deckDarkness.size()-1);
 		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
+		System.out.println("Play Darkness Card");
 	}
 	
 	public void playLightCard() {
 		Card drawCard = this.deckLight.remove(this.deckLight.size()-1);
 		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
+		System.out.println("Play Light Card");
 	}
 	
 

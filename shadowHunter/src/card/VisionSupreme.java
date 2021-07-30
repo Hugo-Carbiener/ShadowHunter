@@ -7,11 +7,14 @@ import character.Role;
 
 public class VisionSupreme extends Card {
 
-	protected String name = "Vision suprême";
-	protected CardAlignement VISION;
-	protected List<Role> Condition = new ArrayList<Role>(); 	//No condition
+	protected List<Role> condition = new ArrayList<Role>(); 	//No condition
 	
-
+	public VisionSupreme() {
+		super("Vision suprÃªme", CardAlignement.VISION, CardType.INSTANTUSE);
+	}
+	
+	public List<Role> getCondition() {return this.condition;}
+	
 	public void effect() {
 		//Montre moi ton personnage
 	}

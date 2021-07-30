@@ -8,10 +8,14 @@ import character.Role;
 
 public class VisionReconfortante extends Card {
 
-	protected String name = "Vision réconfortante";
-	protected CardAlignement VISION;
-	protected List<Role> Condition = new ArrayList<Role>(Arrays.asList(Role.NEUTRAL));
+	protected List<Role> condition = new ArrayList<Role>(Arrays.asList(Role.NEUTRAL));
 
+	public VisionReconfortante() {
+		super("Vision rÃ©confortante", CardAlignement.VISION, CardType.INSTANTUSE);
+	}
+	
+	public List<Role> getCondition() {return this.condition;}
+	
 	public void effect() {
 		//Soigne une blessure (si pas de blessure prends en une)
 	}

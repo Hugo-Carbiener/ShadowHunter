@@ -2,13 +2,13 @@ package card;
 
 public class AvenementSupreme extends Card {
 
-	protected String name = "Avènement suprême";
-	protected CardAlignement LIGHT;
-	protected CardType INSTANTUSE;
+	public AvenementSupreme() {
+		super("AvÃ¨nement suprÃªme", CardAlignement.LIGHT, CardType.INSTANTUSE);
+	}
 	
 	public void effect() {
-		/* Si vous êtes Hunter, vous pouvez révéler votre identité
-		 * Si vous le faites ou si vous l'avez déjà fait
+		/* Si vous ï¿½tes Hunter, vous pouvez rï¿½vï¿½ler votre identitï¿½
+		 * Si vous le faites ou si vous l'avez dï¿½jï¿½ fait
 		 * Vous soignez toutes vos Blessures
 		 */
 

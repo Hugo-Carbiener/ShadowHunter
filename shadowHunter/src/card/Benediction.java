@@ -2,13 +2,13 @@ package card;
 
 public class Benediction extends Card {
 
-	protected String name = "Bénédiction";
-	protected CardAlignement LIGHT;
-	protected CardType INSTANTUSE;
+	public Benediction() {
+		super("Benedicion", CardAlignement.LIGHT, CardType.INSTANTUSE);
+	}
 	
 	public void effect() {
-		/* Choisissez un joueur autre que vous et lancez le dé 6 faces
-		 * Ce joueur guérit d'autant de blesures que le résulat du dé
+		/* Choisissez un joueur autre que vous et lancez le dï¿½ 6 faces
+		 * Ce joueur guï¿½rit d'autant de blesures que le rï¿½sulat du dï¿½
 		 */
 
 	}

@@ -2,9 +2,9 @@ package card;
 
 public class RevolverDesTenebres extends Card{
 	
-	protected String name = "Revolver des tÈnËbres";
-	protected CardType EQUIPEMENT;
-	protected CardAlignement DARKNESS;
+	public RevolverDesTenebres() {
+		super("Revolver des t√©n√®bres", CardAlignement.DARKNESS, CardType.EQUIPEMENT);
+	}
 	
 	public void effect() {
 		//Vous pouvez attaquer les personnages dans les zones diff√©rentes de la votre uniquement

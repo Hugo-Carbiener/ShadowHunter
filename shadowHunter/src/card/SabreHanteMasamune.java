@@ -2,9 +2,9 @@ package card;
 
 public class SabreHanteMasamune extends Card{
 	
-	protected String name = "Sabre hanté Masamune";
-	protected CardType EQUIPEMENT;
-	protected CardAlignement DARKNESS;
+	public SabreHanteMasamune() {
+		super("Sabre hantÃ© Masamune", CardAlignement.DARKNESS, CardType.EQUIPEMENT);
+	}
 	
 	public void effect() {
 		//Vous devez attaquer a chauqe tour. 1 d4

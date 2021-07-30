@@ -2,12 +2,12 @@ package card;
 
 public class SavoirAncestral extends Card {
 
-	protected String name = "Savoir ancestral";
-	protected CardAlignement LIGHT;
-	protected CardType INSTANTUSE;
+	public SavoirAncestral() {
+		super("Savoir ancestral", CardAlignement.LIGHT, CardType.INSTANTUSE);
+	}
 	
 	public void effect() {
-		/* Lorsque votre tour est terminé jouez immédiatement
+		/* Lorsque votre tour est terminï¿½ jouez immï¿½diatement
 		 * un nouveau tour
 		 */
 

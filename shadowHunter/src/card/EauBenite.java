@@ -2,12 +2,12 @@ package card;
 
 public class EauBenite extends Card {
 
-	protected String name = "Eau bénite";
-	protected CardAlignement LIGHT;
-	protected CardType INSTANTUSE;
+	public EauBenite() {
+		super("Eau bÃ©nite", CardAlignement.LIGHT, CardType.INSTANTUSE);
+	}
 	
 	public void effect() {
-		/*Vous êtes soigné
+		/*Vous ï¿½tes soignï¿½
 		 * de 2 blessures
 		 */
 

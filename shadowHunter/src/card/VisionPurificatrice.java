@@ -8,10 +8,14 @@ import character.Role;
 
 public class VisionPurificatrice extends Card {
 
-	protected String name = "Vision purificatrice";
-	protected CardAlignement VISION;
-	protected List<Role> Condition = new ArrayList<Role>(Arrays.asList(Role.SHADOW));
+	protected List<Role> condition = new ArrayList<Role>(Arrays.asList(Role.SHADOW));
 
+	public VisionPurificatrice() {
+		super("Vision purificatrice", CardAlignement.VISION, CardType.INSTANTUSE);
+	}
+	
+	public List<Role> getCondition() {return this.condition;}
+	
 	public void effect() {
 		//subis deux blessures
 

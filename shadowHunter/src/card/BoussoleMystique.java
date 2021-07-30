@@ -2,13 +2,13 @@ package card;
 
 public class BoussoleMystique extends Card {
 
-	protected String name = "Boussole mystique";
-	protected CardAlignement LIGHT;
-	protected CardType EQUIPEMENT;
+	public BoussoleMystique() {
+		super("Boussole mystique", CardAlignement.LIGHT, CardType.EQUIPEMENT);
+	}
 	
 	public void effect() {
-		/* Quand vous vous déplacez vous pouvez
-		 * lancer 2 fois les dés et choisir quel résultat
+		/* Quand vous vous dï¿½placez vous pouvez
+		 * lancer 2 fois les dï¿½s et choisir quel rï¿½sultat
 		 * utiliser
 		 */
 

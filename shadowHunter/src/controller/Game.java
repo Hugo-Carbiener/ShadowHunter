@@ -212,10 +212,10 @@ public class Game {
 			 availableIDs.remove(color);
 		}
 		
-		for(Player p : this.alivePlayers) {
+		/*for(Player p : this.alivePlayers) {
 			p.addEquipment(this.deckLight.remove(rand.nextInt(this.deckLight.size())));
 			p.addEquipment(this.deckLight.remove(rand.nextInt(this.deckLight.size())));
-		}
+		}*/
 		System.out.println("Players setup completed");
 	}
 	
@@ -319,21 +319,33 @@ public class Game {
 	
 	
 	public void playVisionCard() {
-		Card drawCard = this.deckVision.remove(this.deckVision.size()-1);
+		Card drawCard = this.deckVision.remove(rand.nextInt(this.deckVision.size()));
 		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
-		System.out.println("Play Vision Card");
+		System.out.println("Play Vision Card : " + drawCard.getName());
 	}
 	
 	public void playDarknessCard() {
-		Card drawCard = this.deckDarkness.remove(this.deckDarkness.size()-1);
-		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
-		System.out.println("Play Darkness Card");
+		Card drawCard = this.deckDarkness.remove(rand.nextInt(this.deckDarkness.size()));
+		if(drawCard.getCardType().equals(CardType.EQUIPEMENT)) {
+			System.out.println("You have drawn the following equipment card : " + drawCard.getName());
+			this.currentPlayer.addEquipment(drawCard);
+		}
+		else {
+			drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
+			System.out.println("Play Darkness Card : " + drawCard.getName());
+		}
 	}
 	
 	public void playLightCard() {
-		Card drawCard = this.deckLight.remove(this.deckLight.size()-1);
-		drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
-		System.out.println("Play Light Card");
+		Card drawCard = this.deckLight.remove(rand.nextInt(this.deckLight.size()));
+		if(drawCard.getCardType().equals(CardType.EQUIPEMENT)) {
+			System.out.println("You have drawn the following equipment card : " + drawCard.getName());
+			this.currentPlayer.addEquipment(drawCard);
+		}
+		else {
+			drawCard.effect(); //Faudra passer l'instance courante de Game en param�tre pour activer l'effet de la carte
+			System.out.println("Play Light Card : " + drawCard.getName());
+		}
 	}
 	
 

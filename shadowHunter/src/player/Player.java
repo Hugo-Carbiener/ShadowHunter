@@ -61,4 +61,11 @@ public class Player {
 		return this.isAlive;
 	}
 	
+	public void checkIfAlive() {
+		if (this.damageTaken >= this.character.getLp()) {
+			isAlive = false;
+		}
+	}
 }
+
+

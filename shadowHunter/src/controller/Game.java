@@ -254,9 +254,14 @@ public class Game {
 				if(attackIndex != -1) {
 					dice = this.currentPlayer.diceDamage(); //on lance les d�s de d�gats
 					System.out.println("You dealed "+dice+" damage to the "+this.alivePlayers.get(attackIndex).getID().name());
-					this.alivePlayers.get(attackIndex).takeDamage(dice);//on inflige ces d�gats au joueur cible
+					Player target = this.alivePlayers.get(attackIndex);
+					target.takeDamage(dice);//on inflige ces d�gats au joueur cible
+					target.checkIfAlive();
+					if (target.getIsAlive() == false) {
+						alivePlayers.remove(target);
+						//ajout de vol d'item
+					}
 					
-					//ajout de vol d'item si mort
 				}
 			}
 			if(actualPlayerIndex < this.nbPlayer-1) //if the player is not the last

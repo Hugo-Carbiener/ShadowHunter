@@ -2,16 +2,13 @@ package card;
 
 public class Amulette extends Card {
 
-	protected CardAlignement LIGHT;
-	protected CardType EQUIPEMENT;
-	
 	public Amulette() {
-		this.name = "Amulette";
+		super("Amulette", CardAlignement.LIGHT, CardType.EQUIPEMENT);
 	}
-	
+
 	public void effect() {
-		/* Vous ne subissez aucune Blessure causée par les cartes Darkness :
-		 * Araignée sanguinaire, Dynamite ou Chauve-souris vampire
+		/* Vous ne subissez aucune Blessure causï¿½e par les cartes Darkness :
+		 * Araignï¿½e sanguinaire, Dynamite ou Chauve-souris vampire
 		 */
 
 	}

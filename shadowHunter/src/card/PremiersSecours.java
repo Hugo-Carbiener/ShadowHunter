@@ -2,11 +2,8 @@ package card;
 
 public class PremiersSecours extends Card {
 
-	protected CardAlignement LIGHT;
-	protected CardType INSTANTUSE;
-	
 	public PremiersSecours() {
-		this.name = "Premiers secours";
+		super("Premiers secours", CardAlignement.LIGHT, CardType.INSTANTUSE);
 	}
 
 	public void effect() {

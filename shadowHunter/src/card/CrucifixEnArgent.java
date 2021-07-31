@@ -2,16 +2,13 @@ package card;
 
 public class CrucifixEnArgent extends Card {
 
-	protected CardAlignement LIGHT;
-	protected CardType EQUIPEMENT;
-	
 	public CrucifixEnArgent() {
-		this.name = "Crucifix en argent";
+		super("Crucifix en argent", CardAlignement.LIGHT, CardType.EQUIPEMENT);
 	}
-	
+
 	public void effect() {
 		/* Si vous attaquez et tuez un autre personnage
-		 * vous récupérez toutes ses cartes équipement
+		 * vous rï¿½cupï¿½rez toutes ses cartes ï¿½quipement
 		 */
 
 	}

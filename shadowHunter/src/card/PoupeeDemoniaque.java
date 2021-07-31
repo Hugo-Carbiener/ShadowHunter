@@ -2,11 +2,8 @@ package card;
 
 public class PoupeeDemoniaque extends Card {
 
-	protected CardType INSTANTUSE;
-	protected CardAlignement DARKNESS;
-	
 	public PoupeeDemoniaque() {
-		this.name = "Poupée démoniaque";
+		super("PoupÃ©e dÃ©moniaque", CardAlignement.DARKNESS, CardType.INSTANTUSE);
 	}
 
 	public void effect() {

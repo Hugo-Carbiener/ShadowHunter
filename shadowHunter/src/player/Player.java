@@ -1,5 +1,6 @@
 package player;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -15,6 +16,7 @@ public class Player {
 	private Character character;
 	private List<Card> equipment;
 	private Area currentArea;
+	private List<Player> killList = new ArrayList<>();
 	
 	
 	public static Random rand = new Random(); 
@@ -52,6 +54,8 @@ public class Player {
 	public void setCharacter(Character character) {
 		this.character=character;
 	}
+	
+	public List<Player> getKillList() {return this.killList;}
 	
 	
 	public boolean takeDamage(int damage) {

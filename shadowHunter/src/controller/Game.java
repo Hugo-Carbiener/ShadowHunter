@@ -259,9 +259,9 @@ public class Game {
 					target.checkIfAlive();
 					if (target.getIsAlive() == false) {
 						alivePlayers.remove(target);
+						this.currentPlayer.getKillList().add(target);
 						//ajout de vol d'item
 					}
-					
 				}
 			}
 			if(actualPlayerIndex < this.nbPlayer-1) //if the player is not the last

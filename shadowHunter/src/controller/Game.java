@@ -158,8 +158,8 @@ public class Game {
 		
 		//Fill areaList randomly
 		while(temp.size() > 0) {
-			//Area tempArea = temp.remove(rand.nextInt(temp.size()));
-			areaList.add(temp.remove(0));
+			Area tempArea = temp.remove(rand.nextInt(temp.size()));
+			areaList.add(tempArea);
 		}
 		for(int i=0;i<6;i++) {
 			if(i%2==0) {
